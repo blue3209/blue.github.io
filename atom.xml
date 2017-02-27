@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-27T02:55:12.000Z</updated>
+  <updated>2017-02-27T06:35:06.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2017加油</title>
+    <link href="http://yoursite.com/2017/02/27/Blog-Created/"/>
+    <id>http://yoursite.com/2017/02/27/Blog-Created/</id>
+    <published>2017-02-27T05:54:06.000Z</published>
+    <updated>2017-02-27T06:35:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天个人Blog首次创建完成，通过<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Github+Hexo</a>的教程一步步完成的。<br>2017新的一年，无论是在生活中，还是工作、学习上都需要作出改变和努力，给自己定个目标，通过坚持一步一步完成。</p>
+<a id="more"></a>
+<h1 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h1><blockquote>
+<p>保证移动端各项工作顺利完成<br>熟悉公司服务端项目流程<br>提高团队成员的技术能力和规范</p>
+</blockquote>
+<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><blockquote>
+<p>进一步加深了解App（Android、iOS）开发相关的工作<br>学习Go语言，掌握基本知识<br>开发并完成一个小项目</p>
+</blockquote>
+<h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><blockquote>
+<p>结婚成家，结束“非同”的生活<br>考驾照，尽量买辆代步车</p>
+</blockquote>
+<p>2017年主要围绕以上目标来做，加油！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天个人Blog首次创建完成，通过&lt;a href=&quot;https://hexo.io/zh-cn/docs/index.html&quot;&gt;Github+Hexo&lt;/a&gt;的教程一步步完成的。&lt;br&gt;2017新的一年，无论是在生活中，还是工作、学习上都需要作出改变和努力，给自己定个目标，通过坚持一步一步完成。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2017/02/27/hello-world/"/>
     <id>http://yoursite.com/2017/02/27/hello-world/</id>
     <published>2017-02-27T02:55:12.000Z</published>
-    <updated>2017-02-27T02:55:12.000Z</updated>
+    <updated>2017-02-27T06:35:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -35,7 +66,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
