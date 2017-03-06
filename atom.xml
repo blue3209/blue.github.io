@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-28T09:08:16.000Z</updated>
+  <updated>2017-03-06T02:11:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发中遇到的各种问题</title>
+    <link href="http://yoursite.com/2017/03/06/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/03/06/iOS开发中遇到的各种问题/</id>
+    <published>2017-03-06T01:39:13.000Z</published>
+    <updated>2017-03-06T02:11:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇文章主要纪录iOS开发中遇到的各种问题和解决方法，部分是通过自己来解决的，一部分是通过各种“Google”来解决的，不定期更新，具体内容如下。</p>
+<h4 id="1-iOS中获取字符串所占用的宽和高"><a href="#1-iOS中获取字符串所占用的宽和高" class="headerlink" title="1.iOS中获取字符串所占用的宽和高"></a>1.iOS中获取字符串所占用的宽和高</h4><blockquote>
+<p>这里需要注意的是在不同系统版本下获取的方法，7.0以下通过sizeWithFont来获取，而7.0以上boundingRectWithSize来实现。具体代码如下:</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">+(<span class="built_in">CGSize</span>)sizeWithFont:(<span class="built_in">NSString</span> *)text font:(<span class="built_in">UIFont</span> *)font size:(<span class="built_in">CGSize</span>)size</div><div class="line">&#123;</div><div class="line">    <span class="built_in">CGRect</span> stringRect;</div><div class="line">    <span class="keyword">if</span> ([text respondsToSelector:<span class="keyword">@selector</span>(boundingRectWithSize:options:attributes:context:)]) &#123;</div><div class="line">        stringRect = [text boundingRectWithSize:size</div><div class="line">                                        options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> | <span class="built_in">NSStringDrawingUsesFontLeading</span></div><div class="line">                                     attributes:@&#123;<span class="built_in">NSFontAttributeName</span>: font&#125;</div><div class="line">                                        context:<span class="literal">NULL</span>];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">CGSize</span> stringSize = [text sizeWithFont:font constrainedToSize:size];</div><div class="line">        stringRect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, stringSize.width, stringSize.height);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> stringRect.size;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-［编译］Undefined-symbols-for-architecture-arm64"><a href="#2-［编译］Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. ［编译］Undefined symbols for architecture arm64"></a>2. ［编译］Undefined symbols for architecture arm64</h4><blockquote>
+<p>该问题是我在模拟器上编译运行没问题，但是在真机上运行报错，编译失败。问题原因有很多中，具体分析如下：<br>1、大部分情况下是忘记添加了某个系统framework或dylib吧，比如你在项目中使用了sqlite3，但是没有添加libsqlite3.dylib，就会出现这个问题。解决办法是增加对应的framework或dylib。<br>2、如果是在C++里调用C函数，检查是否有添加extern “C”，这可以通过观察错误提示中的函数名形式来决定，如果是C函数而以C ++的方式调用就需要添加extern “C”。<br>3、如果是把其它工程的xcodeproj文件加入到当前项目中，检查Build Phases中的Target Dependencies有没有添加依赖，以及General中的Linked Frameworks and Libraries有没有添加相关的.a文件。<br>4、如果添加.a文件编译无错而添加xcodeproj文件编译出错可参考3<br>5、如果添加.a文件编译出错，首先检查其对应的头文件是否添加正确，或者在Build Setting中有没有添加对应的Header Search Path路径；其次检查.a文件的c++编译选项与当前项目的c++编译选项是否一致；最后检查.a文件与当前项目的CPU架构信息是否一致<br>6、如果是extern变量报这个错误，要检查extern变量有没有在其它地方声明，如果没有则加上；如果外部变量在静态库中，可根据5检查引用头文件或头文件搜索路径是否正确；如果头文件无问题，就需要检查静态库与与当前项目的CPU架构信息是否一致<br>7、如果是使用了静态库，真机Debug测试时正常，而在执行for iOS Device测试时报这个错误，很可能是因为静态库支持的架构不全。出现这种情况是Build Setting中的Build Active Architecture Only在Debug下设为Yes，从而使得真机Debug测试正常。<br>8、如果只有@interface，没有@implementation也会导致这个错误</p>
+</blockquote>
+<p><em>解决参考如下：</em></p>
+<blockquote>
+<ol>
+<li>参考Stackoverflow<br> <a href="http://stackoverflow.com/questions/18408531/xcode-build-failure-undefined-symbols-for-architecture-x86-64" target="_blank" rel="external">http://stackoverflow.com/questions/18408531/xcode-build-failure-undefined-symbols-for-architecture-x86-64</a></li>
+<li>以上如果配置无误，可尝试此方法解决：<br> ~/Library/Developer/Xcode/DerivedData关掉XCode，删掉DerivedData这个文件夹里与项目有关的全部内容 然后重新打开项目clean&gt;build</li>
+</ol>
+</blockquote>
+<p><em>本人通过第二种方法解决的</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇文章主要纪录iOS开发中遇到的各种问题和解决方法，部分是通过自己来解决的，一部分是通过各种“Google”来解决的，不定期更新，具体内容如下。&lt;/p&gt;
+&lt;h4 id=&quot;1-iOS中获取字符串所占用的宽和高&quot;&gt;&lt;a href=&quot;#1-iOS中获取字符串所占用的宽和高&quot; c
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="Xcode" scheme="http://yoursite.com/tags/Xcode/"/>
+    
+      <category term="Objective－C" scheme="http://yoursite.com/tags/Objective%EF%BC%8DC/"/>
+    
+      <category term="Bug" scheme="http://yoursite.com/tags/Bug/"/>
+    
+      <category term="Developer" scheme="http://yoursite.com/tags/Developer/"/>
+    
+  </entry>
   
   <entry>
     <title>2017加油</title>
