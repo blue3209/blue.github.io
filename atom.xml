@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-06T02:14:59.000Z</updated>
+  <updated>2017-03-17T09:24:03.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/06/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2017/03/06/iOS开发中遇到的各种问题/</id>
     <published>2017-03-06T01:39:13.000Z</published>
-    <updated>2017-03-06T02:14:59.000Z</updated>
+    <updated>2017-03-17T09:24:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>本篇文章主要纪录iOS开发中遇到的各种问题和解决方法，部分是通过自己来解决的，一部分是通过各种“Google”来解决的，不定期更新，具体内容如下。</p>
 <h4 id="1-iOS中获取字符串所占用的宽和高"><a href="#1-iOS中获取字符串所占用的宽和高" class="headerlink" title="1.iOS中获取字符串所占用的宽和高"></a>1.iOS中获取字符串所占用的宽和高</h4><a id="more"></a>
@@ -39,6 +39,7 @@
 </ol>
 </blockquote>
 <p><em>本人通过第二种方法解决的</em></p>
+<h4 id="3-MacOS-下Gradle和Maven的本地路径"><a href="#3-MacOS-下Gradle和Maven的本地路径" class="headerlink" title="3.MacOS 下Gradle和Maven的本地路径"></a>3.MacOS 下Gradle和Maven的本地路径</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Gradle:</div><div class="line">    cd ~/.gradle</div><div class="line">Maven:</div><div class="line">    cd ~/.m2</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
