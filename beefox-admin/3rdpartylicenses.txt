@@ -440,9 +440,6 @@ Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 
 
-nebular-icons
-MIT
-
 ionicons
 MIT
 The MIT License (MIT)
@@ -467,6 +464,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+
+nebular-icons
+MIT
 
 style-loader
 MIT
